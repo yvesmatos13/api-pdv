@@ -4,7 +4,8 @@ from flask import Blueprint, jsonify, request
 from flask_api import status
 from servico.lojaServico import LojaServico
 
-loja_blueprint = Blueprint("Loja", __name__)
+
+loja_blueprint = Blueprint("loja", __name__)
 
 class LojaControle:
 
@@ -18,12 +19,12 @@ class LojaControle:
         loja = json.loads(request.data)
         return jsonify(LojaServico.atualizarLoja(loja)), status.HTTP_200_OK
 
-    @loja_blueprint.route('/loja', methods=['GET'])
+    @loja_blueprint.route('/buscarLoja', methods=['GET'])
     def buscarLoja():
         args = request.args
         id = args.get('id')
         return jsonify(LojaServico.buscarLoja(id)), status.HTTP_200_OK
 
-    @loja_blueprint.route('/lojas', methods=['GET'])
+    @loja_blueprint.route('/listarLojas', methods=['GET'])
     def listarLojas():
         return jsonify(LojaServico.listarLojas()), status.HTTP_200_OK

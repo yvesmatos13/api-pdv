@@ -1,6 +1,5 @@
 from repositorio.lojaRepositorio import LojaRepositorio
 
-
 class LojaServico:
 
     def inserirLoja(loja):
